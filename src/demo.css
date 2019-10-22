@@ -1,0 +1,37 @@
+.blue{
+    background-color:blue;
+    width:100;
+  
+}
+.red{
+    background-color: red;
+    width:100;
+  
+}
+.hop{
+    border:solid 2px ,black;
+}
+.green{
+    background-color: green;
+    width: 100px;
+}
+span
+{   
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+.vien{
+    border:solid 3px black; 
+}
+#content{
+    border:solid 3px red;
+    padding: 15px;
+}
+.mt{
+    margin-top: 50px;
+}
+.compo{
+    border: dashed 1px black ;
+    padding: 20px;   
+}
