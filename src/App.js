@@ -4,8 +4,6 @@ import Result from './components/result'
 import Color from './components/color';
 import Choose from './components/chonco';
 import Reset from './components/reset'
-import './tranning/Demo'
-
 class TimeBox {
   constructor(app) {
     this.element = (
