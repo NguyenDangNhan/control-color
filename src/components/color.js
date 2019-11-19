@@ -1,25 +1,20 @@
 import React,{Component} from 'react'
+import * as Constans from '../constans/actionTypes'
+import {connect} from 'react-redux'
+import * as Actions from '../actions/actions'
 class Color extends Component { 
-    constructor(props){
-        super(props);
-        this.state={
-            color1:['red','green','blue','silver']
-        }}
     showcolor(coLor){
       return{
         backgroundColor : coLor
       };
     }
-    mau(color){
-      this.props.baccau(color)
-    }
     render() 
     {
-      let element=this.state.color1.map((color,index)=>{
+      let element=Constans.listcolor.map((color,index)=>{
           return <span key={index}
                        style={this.showcolor(color)} 
                        className={(this.props.color===color)?"vien":""}
-                       onClick={()=>this.mau(color)}
+                       onClick={()=>this.props.on_setcolor(color)}
                  ></span>
 
       }  )
@@ -30,7 +25,7 @@ class Color extends Component {
                    
                    <div className="panel panel-primary">
                          <div className="panel-heading">
-                               <h3 className="panel-title">chọn màu</h3>
+                         <h3 className="panel-title">choose color</h3>
                          </div>
                          <div className="panel-body">
                                {element}
@@ -42,4 +37,14 @@ class Color extends Component {
       );
     }
   }
-  export default Color;
+  const mapStateToProps=(state)=>{
+    return {color:state.Color}
+  }
+  const mapDisPatchToProps=(dispatch,props)=>{
+    return{
+             on_setcolor:(color)=>{
+                  dispatch(Actions.setColor(color))
+             }
+    }
+  }
+  export default connect(mapStateToProps,mapDisPatchToProps)(Color);
